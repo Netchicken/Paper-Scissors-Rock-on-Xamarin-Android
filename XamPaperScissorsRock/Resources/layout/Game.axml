@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <TextView
+        android:text="Welcome Message"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvName" />
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/radio_paper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paper" />
+        <RadioButton
+            android:id="@+id/radio_scissors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scissors" />
+        <RadioButton
+            android:id="@+id/radio_rock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rock" />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageAnswer"
+            android:src="@drawable/ww2"
+            android:scaleType="fitCenter" />
+    </RadioGroup>
+</LinearLayout>
