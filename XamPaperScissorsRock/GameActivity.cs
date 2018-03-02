@@ -18,23 +18,26 @@ namespace XamPaperScissorsRock
 
     public class GameActivity : Activity
     {
-        private TextView txtMessage;
         private ImageView GamePic;
-        private string[] Guess = { "", "Paper", "Scissors", "Rock" };
+        private string Name;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             //load the game screen
             SetContentView(Resource.Layout.Game);
 
-            txtMessage = FindViewById<TextView>(Resource.Id.tvName);
-            txtMessage.Text = "Choose an option " + Intent.GetStringExtra("Name");
+            Name = Intent.GetStringExtra("Name");
+            TextView txtMessage = FindViewById<TextView>(Resource.Id.tvName);
+            txtMessage.Text = "Choose an option " + Name;
             GamePic = FindViewById<ImageView>(Resource.Id.imageAnswer);
 
+            //Radiobutton binding
             RadioButton RPaper = FindViewById<RadioButton>(Resource.Id.radio_paper);
             RadioButton RScissors = FindViewById<RadioButton>(Resource.Id.radio_scissors);
             RadioButton RRock = FindViewById<RadioButton>(Resource.Id.radio_rock);
 
+            //radiobuttons going to same click event
             RPaper.Click += RadioButtonClick;
             RScissors.Click += RadioButtonClick;
             RRock.Click += RadioButtonClick;
@@ -48,7 +51,7 @@ namespace XamPaperScissorsRock
 
             string comp = ComputerChoice();
             string Hum = rb.Text;
-            Toast.MakeText(this, "You " + Hum + " Comp = " + comp, ToastLength.Long).Show();
+            Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
 
             if (Hum == "Paper" && comp == "Rock"
                 || Hum == "Scissors" && comp == "Paper"
@@ -57,14 +60,20 @@ namespace XamPaperScissorsRock
             {
                 GamePic.SetImageResource(Resource.Drawable.win);
             }
+            else if(Hum == comp)
+
+            {
+
+                GamePic.SetImageResource(Resource.Drawable.ww2);
+                Toast.MakeText(this, "Draw", ToastLength.Long).Show();
+            }
+
             else
             {
                 GamePic.SetImageResource(Resource.Drawable.lose);
+                Toast.MakeText(this, "Suck on that " + Name, ToastLength.Short).Show();
 
             }
-
-
-
         }
 
         public string ComputerChoice()
@@ -73,8 +82,7 @@ namespace XamPaperScissorsRock
             var CompGuess = new Random();
             //This code generates a random integer between 1 and 4, but 4 is not inclusive, meaning the only possibilities are 1, 2 and 3
             //1 represents paper, 2 represents scissors, 3 represents rock 
-
-            //Send the number back to the program
+            string[] Guess = { "", "Paper", "Scissors", "Rock" };
             return Guess[CompGuess.Next(1, 4)];
         }
 
