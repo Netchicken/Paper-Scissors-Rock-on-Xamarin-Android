@@ -32,6 +32,13 @@ namespace XamPaperScissorsRock
 
         private void onNext_Click(object sender, EventArgs e)
         {
+            //Someone forgot to add a name so you have to catch it
+            if (Convert.ToBoolean(txtName.Text = string.Empty))
+            {
+                Toast.MakeText(this, "Add a name first", ToastLength.Long).Show();
+                return;
+            }
+
             //toast check to see its working
             Toast.MakeText(this, "Your name is " + txtName.Text, ToastLength.Long).Show();
             //create an intent - which is what you intend to do

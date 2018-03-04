@@ -28,6 +28,8 @@ namespace XamPaperScissorsRock
             SetContentView(Resource.Layout.Game);
 
             Name = Intent.GetStringExtra("Name");
+
+           
             TextView txtMessage = FindViewById<TextView>(Resource.Id.tvName);
             txtMessage.Text = "Choose an option " + Name;
             GamePic = FindViewById<ImageView>(Resource.Id.imageAnswer);
@@ -44,7 +46,7 @@ namespace XamPaperScissorsRock
 
         }
 
-
+        //this method runs the entire game
         private void RadioButtonClick(object sender, EventArgs e)
         {
             RadioButton rb = (RadioButton)sender;
