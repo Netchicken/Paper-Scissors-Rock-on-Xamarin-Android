@@ -6,7 +6,7 @@ using Android.OS;
 
 namespace XamPaperScissorsRock
 {
-    [Activity(Label = "XamPaperScissorsRock", MainLauncher = true)]
+    [Activity(Label = "Paper Scissors Rock", MainLauncher = true)]
     public class MainActivity : Activity
     {
         //create your local variables
@@ -33,7 +33,7 @@ namespace XamPaperScissorsRock
         private void onNext_Click(object sender, EventArgs e)
         {
             //Someone forgot to add a name so you have to catch it
-            if (Convert.ToBoolean(txtName.Text = string.Empty))
+            if (txtName.Text == string.Empty)
             {
                 Toast.MakeText(this, "Add a name first", ToastLength.Long).Show();
                 return;
