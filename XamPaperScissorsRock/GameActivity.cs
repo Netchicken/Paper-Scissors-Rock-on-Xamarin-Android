@@ -29,7 +29,7 @@ namespace XamPaperScissorsRock
 
             Name = Intent.GetStringExtra("Name");
 
-           
+
             TextView txtMessage = FindViewById<TextView>(Resource.Id.tvName);
             txtMessage.Text = "Choose an option " + Name;
             GamePic = FindViewById<ImageView>(Resource.Id.imageAnswer);
@@ -53,7 +53,7 @@ namespace XamPaperScissorsRock
 
             string comp = ComputerChoice();
             string Hum = rb.Text;
-            Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
+            //   Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
 
             if (Hum == "Paper" && comp == "Rock"
                 || Hum == "Scissors" && comp == "Paper"
@@ -61,19 +61,20 @@ namespace XamPaperScissorsRock
 
             {
                 GamePic.SetImageResource(Resource.Drawable.win);
+                Toast.MakeText(this, "Won!", ToastLength.Long).Show();
             }
-            else if(Hum == comp)
+            else if (Hum == comp)
 
             {
 
-                GamePic.SetImageResource(Resource.Drawable.ww2);
+                //  GamePic.SetImageResource(Resource.Drawable.ww2);
                 Toast.MakeText(this, "Draw", ToastLength.Long).Show();
             }
 
             else
             {
-                GamePic.SetImageResource(Resource.Drawable.lose);
-                Toast.MakeText(this, "Suck on that " + Name, ToastLength.Short).Show();
+                //  GamePic.SetImageResource(Resource.Drawable.lose);
+                Toast.MakeText(this, "Suck on that " + Name, ToastLength.Long).Show();
 
             }
         }
