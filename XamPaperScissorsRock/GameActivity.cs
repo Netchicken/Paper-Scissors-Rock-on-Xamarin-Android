@@ -29,7 +29,7 @@ namespace XamPaperScissorsRock
 
             Name = Intent.GetStringExtra("Name");
 
-           
+
             TextView txtMessage = FindViewById<TextView>(Resource.Id.tvName);
             txtMessage.Text = "Choose an option " + Name;
             GamePic = FindViewById<ImageView>(Resource.Id.imageAnswer);
@@ -61,8 +61,9 @@ namespace XamPaperScissorsRock
 
             {
                 GamePic.SetImageResource(Resource.Drawable.win);
+                Toast.MakeText(this, "Well you won that!", ToastLength.Long).Show();
             }
-            else if(Hum == comp)
+            else if (Hum == comp)
 
             {
 
