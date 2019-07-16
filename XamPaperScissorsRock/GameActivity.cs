@@ -20,8 +20,9 @@ namespace XamPaperScissorsRock
     public class GameActivity : Activity
     {
         private ImageView GamePic;
-        private string Name;
+        private string Name, Hum;
         private TextView txtMainMessage;
+        private Button btnPlay;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -49,16 +50,16 @@ namespace XamPaperScissorsRock
             RScissors.Click += RadioButtonClick;
             RRock.Click += RadioButtonClick;
 
+
+            btnPlay = FindViewById<Button>(Resource.Id.btnPlay);
+            btnPlay.Click += btnPlay_Click;
         }
 
-        //this method runs the entire game
-        private void RadioButtonClick(object sender, EventArgs e)
+        private void btnPlay_Click(object sender, EventArgs e)
         {
-            RadioButton rb = (RadioButton)sender;
-
             string Comp = ComputerChoice();
-            string Hum = rb.Text;
-           // Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
+
+            // Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
             txtMainMessage.Text = Name + " " + Hum + Environment.NewLine + " vrs Comp = " + Comp;
 
             //WIN
@@ -68,17 +69,16 @@ namespace XamPaperScissorsRock
 
             {
                 GamePic.SetImageResource(Resource.Drawable.win);
-             //   Toast.MakeText(this, "Well you won that!", ToastLength.Long).Show();
-                txtMainMessage.Text = "Well you won that!" + Environment.NewLine + Hum +  " beats " + Comp;
+                //   Toast.MakeText(this, "Well you won that!", ToastLength.Long).Show();
+                txtMainMessage.Text = "Well you won that!" + Environment.NewLine + Hum + " beats " + Comp;
             }
 
             //DRAW
             else if (Hum == Comp)
 
             {
-
                 GamePic.SetImageResource(Resource.Drawable.ww2);
-             //   Toast.MakeText(this, "Draw", ToastLength.Long).Show();
+                //   Toast.MakeText(this, "Draw", ToastLength.Long).Show();
 
                 txtMainMessage.Text = "It was a draw!" + Environment.NewLine + Hum + " and " + Comp; ;
             }
@@ -86,9 +86,16 @@ namespace XamPaperScissorsRock
             else
             {
                 GamePic.SetImageResource(Resource.Drawable.lose);
-             //   Toast.MakeText(this, "Suck on that " + Name, ToastLength.Short).Show();
+                //   Toast.MakeText(this, "Suck on that " + Name, ToastLength.Short).Show();
                 txtMainMessage.Text = "Well you Lost that!" + Environment.NewLine + Comp + " beats " + Hum; ;
             }
+        }
+
+        //this method runs the entire game
+        private void RadioButtonClick(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            Hum = rb.Text;
         }
 
         public string ComputerChoice()

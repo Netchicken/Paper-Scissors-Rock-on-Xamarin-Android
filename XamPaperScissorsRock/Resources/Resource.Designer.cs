@@ -70,34 +70,37 @@ namespace XamPaperScissorsRock
 			public const int btnNext = 2130837504;
 			
 			// aapt resource value: 0x7F020001
-			public const int etEnterName = 2130837505;
+			public const int btnPlay = 2130837505;
 			
 			// aapt resource value: 0x7F020002
-			public const int imageAnswer = 2130837506;
+			public const int etEnterName = 2130837506;
 			
 			// aapt resource value: 0x7F020003
-			public const int linearLayout1 = 2130837507;
+			public const int imageAnswer = 2130837507;
 			
 			// aapt resource value: 0x7F020004
-			public const int radio_paper = 2130837508;
+			public const int linearLayout1 = 2130837508;
 			
 			// aapt resource value: 0x7F020005
-			public const int radio_rock = 2130837509;
+			public const int radio_paper = 2130837509;
 			
 			// aapt resource value: 0x7F020006
-			public const int radio_scissors = 2130837510;
+			public const int radio_rock = 2130837510;
 			
 			// aapt resource value: 0x7F020007
-			public const int tvEnterName = 2130837511;
+			public const int radio_scissors = 2130837511;
 			
 			// aapt resource value: 0x7F020008
-			public const int tvMessage = 2130837512;
+			public const int tvEnterName = 2130837512;
 			
 			// aapt resource value: 0x7F020009
-			public const int tvName = 2130837513;
+			public const int tvMessage = 2130837513;
 			
 			// aapt resource value: 0x7F02000A
-			public const int tvTitle = 2130837514;
+			public const int tvName = 2130837514;
+			
+			// aapt resource value: 0x7F02000B
+			public const int tvTitle = 2130837515;
 			
 			static Id()
 			{
