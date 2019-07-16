@@ -75,7 +75,6 @@ namespace XamPaperScissorsRock
 
             //DRAW
             else if (Hum == Comp)
-
             {
                 GamePic.SetImageResource(Resource.Drawable.ww2);
                 //   Toast.MakeText(this, "Draw", ToastLength.Long).Show();

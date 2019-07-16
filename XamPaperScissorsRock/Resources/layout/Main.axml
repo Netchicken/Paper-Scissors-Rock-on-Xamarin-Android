@@ -30,7 +30,7 @@
         android:paddingBottom="20dp"
         android:paddingTop="20dp"
         android:ellipsize="middle"
-        android:elegantTextHeight="false" />
+        android:layout_gravity="center" />
     <TextView
         android:text="Enter Your Name"
         android:layout_width="match_parent"
@@ -56,4 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnNext" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgMainPic"
+        android:src="@drawable/psr" />
 </LinearLayout>
