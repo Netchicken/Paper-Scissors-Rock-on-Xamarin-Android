@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Environment = System.Environment;
 
 namespace XamPaperScissorsRock
 {
@@ -20,6 +21,7 @@ namespace XamPaperScissorsRock
     {
         private ImageView GamePic;
         private string Name;
+        private TextView txtMainMessage;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,11 +29,12 @@ namespace XamPaperScissorsRock
             //load the game screen
             SetContentView(Resource.Layout.Game);
 
+            //Pass the name across to the game
             Name = Intent.GetStringExtra("Name");
 
 
             TextView txtMessage = FindViewById<TextView>(Resource.Id.tvName);
-            TextView txtMainMessage = FindViewById<TextView>(Resource.Id.tvMessage);
+            txtMainMessage = FindViewById<TextView>(Resource.Id.tvMessage);
             txtMessage.Text = "Choose an option " + Name;
             txtMainMessage.Text = "Be prepared to be beaten!";
             GamePic = FindViewById<ImageView>(Resource.Id.imageAnswer);
@@ -53,31 +56,38 @@ namespace XamPaperScissorsRock
         {
             RadioButton rb = (RadioButton)sender;
 
-            string comp = ComputerChoice();
+            string Comp = ComputerChoice();
             string Hum = rb.Text;
-            Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
+           // Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
+            txtMainMessage.Text = Name + " " + Hum + Environment.NewLine + " vrs Comp = " + Comp;
 
-            if (Hum == "Paper" && comp == "Rock"
-                || Hum == "Scissors" && comp == "Paper"
-                || Hum == "Rock" && comp == "Scissors")
+            //WIN
+            if (Hum == "Paper" && Comp == "Rock"
+                || Hum == "Scissors" && Comp == "Paper"
+                || Hum == "Rock" && Comp == "Scissors")
 
             {
                 GamePic.SetImageResource(Resource.Drawable.win);
-                Toast.MakeText(this, "Well you won that!", ToastLength.Long).Show();
+             //   Toast.MakeText(this, "Well you won that!", ToastLength.Long).Show();
+                txtMainMessage.Text = "Well you won that!" + Environment.NewLine + Hum +  " beats " + Comp;
             }
-            else if (Hum == comp)
+
+            //DRAW
+            else if (Hum == Comp)
 
             {
 
                 GamePic.SetImageResource(Resource.Drawable.ww2);
-                Toast.MakeText(this, "Draw", ToastLength.Long).Show();
-            }
+             //   Toast.MakeText(this, "Draw", ToastLength.Long).Show();
 
+                txtMainMessage.Text = "It was a draw!" + Environment.NewLine + Hum + " and " + Comp; ;
+            }
+            //LOSE
             else
             {
                 GamePic.SetImageResource(Resource.Drawable.lose);
-                Toast.MakeText(this, "Suck on that " + Name, ToastLength.Short).Show();
-
+             //   Toast.MakeText(this, "Suck on that " + Name, ToastLength.Short).Show();
+                txtMainMessage.Text = "Well you Lost that!" + Environment.NewLine + Comp + " beats " + Hum; ;
             }
         }
 
