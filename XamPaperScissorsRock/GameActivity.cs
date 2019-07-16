@@ -31,7 +31,9 @@ namespace XamPaperScissorsRock
 
 
             TextView txtMessage = FindViewById<TextView>(Resource.Id.tvName);
+            TextView txtMainMessage = FindViewById<TextView>(Resource.Id.tvMessage);
             txtMessage.Text = "Choose an option " + Name;
+            txtMainMessage.Text = "Be prepared to be beaten!";
             GamePic = FindViewById<ImageView>(Resource.Id.imageAnswer);
 
             //Radiobutton binding

@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
+        android:background="#ff091459"
     android:id="@+id/linearLayout1">
+    <TextView
+        android:text="Gary's Awesome Paper Scissors Rock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTitle"
+        android:textAlignment="center"
+        android:textColor="#ffff9800"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:backgroundTintMode="screen"
+        android:typeface="serif"
+        android:background="#ff091459"
+        android:shadowColor="#ff3fa033"
+        android:shadowDx="12"
+        android:shadowDy="12"
+        android:shadowRadius="12"
+        android:foregroundGravity="center|center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:ellipsize="middle"
+        android:elegantTextHeight="false" />
     <TextView
         android:text="Enter Your Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvEnterName"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_bright" />
+        android:textColor="@android:color/holo_blue_bright"
+        android:textStyle="bold"
+        android:textSize="24dp" />
     <EditText
         android:id="@+id/etEnterName"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:inputType="text"
-        android:hint="Name" />
+        ndroid:textColor="@android:color/holo_blue_bright"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:hint="Name"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp" />
     <Button
         android:text="Next"
         android:layout_width="match_parent"
