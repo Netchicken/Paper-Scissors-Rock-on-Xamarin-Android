@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-          android:background="#ff091459"
+    android:background="#ff091459"
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
@@ -36,16 +36,16 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:textStyle="bold"
-        android:textSize="24dp"
-                 android:textColor="#ffe1e81c"
-            android:text="Paper" />
+                android:textSize="24dp"
+                android:textColor="#ffe1e81c"
+                android:text="Paper" />
             <RadioButton
                 android:id="@+id/radio_scissors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#ffe1e81c"
                 android:textStyle="bold"
-        android:textSize="24dp"
+                android:textSize="24dp"
                  android:padding="5dp"
                 android:text="Scissors" />
             <RadioButton
@@ -55,7 +55,7 @@
                  android:padding="5dp"
                 android:textColor="#ffe1e81c"
                 android:textStyle="bold"
-        android:textSize="24dp"
+                android:textSize="24dp"
                 android:text="Rock" />
         </RadioGroup>
         <TextView
@@ -65,7 +65,7 @@
             android:layout_height="match_parent"
             android:id="@+id/tvMessage"
             android:textColor="#ffe1e81c"
-               android:background="#ff091459"
+            android:background="#ff091459"
             android:padding="5dp" />
   </LinearLayout>
     <Button

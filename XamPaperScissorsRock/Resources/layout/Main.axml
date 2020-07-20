@@ -52,7 +52,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="10dp" />
     <Button
-        android:text="Next"
+        android:text="Enter The Game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnNext" />

@@ -33,7 +33,11 @@ namespace XamPaperScissorsRock
             //Pass the name across to the game
             Name = Intent.GetStringExtra("Name");
 
+            Init();
+        }
 
+        private void Init()
+        {
             TextView txtMessage = FindViewById<TextView>(Resource.Id.tvName);
             txtMainMessage = FindViewById<TextView>(Resource.Id.tvMessage);
             txtMessage.Text = "Choose an option " + Name;
@@ -55,56 +59,35 @@ namespace XamPaperScissorsRock
             btnPlay.Click += btnPlay_Click;
         }
 
-        private void btnPlay_Click(object sender, EventArgs e)
-        {
-            string Comp = ComputerChoice();
-
-            // Toast.MakeText(this, Name + " " + Hum + " vrs Comp = " + comp, ToastLength.Long).Show();
-            txtMainMessage.Text = Name + " " + Hum + Environment.NewLine + " vrs Comp = " + Comp;
-
-            //WIN
-            if (Hum == "Paper" && Comp == "Rock"
-                || Hum == "Scissors" && Comp == "Paper"
-                || Hum == "Rock" && Comp == "Scissors")
-
-            {
-                GamePic.SetImageResource(Resource.Drawable.win);
-                //   Toast.MakeText(this, "Well you won that!", ToastLength.Long).Show();
-                txtMainMessage.Text = "Well you won that!" + Environment.NewLine + Hum + " beats " + Comp;
-            }
-
-            //DRAW
-            else if (Hum == Comp)
-            {
-                GamePic.SetImageResource(Resource.Drawable.ww2);
-                //   Toast.MakeText(this, "Draw", ToastLength.Long).Show();
-
-                txtMainMessage.Text = "It was a draw!" + Environment.NewLine + Hum + " and " + Comp; ;
-            }
-            //LOSE
-            else
-            {
-                GamePic.SetImageResource(Resource.Drawable.lose);
-                //   Toast.MakeText(this, "Suck on that " + Name, ToastLength.Short).Show();
-                txtMainMessage.Text = "Well you Lost that!" + Environment.NewLine + Comp + " beats " + Hum; ;
-            }
-        }
-
         //this method runs the entire game
         private void RadioButtonClick(object sender, EventArgs e)
         {
             RadioButton rb = (RadioButton)sender;
             Hum = rb.Text;
+            txtMainMessage.Text = Name + " you chose " + Hum;
         }
-
-        public string ComputerChoice()
+        private void btnPlay_Click(object sender, EventArgs e)
         {
-            //create a new instance of the Random Class
-            var CompGuess = new Random();
-            //This code generates a random integer between 1 and 4, but 4 is not inclusive, meaning the only possibilities are 1, 2 and 3
-            //1 represents paper, 2 represents scissors, 3 represents rock 
-            string[] Guess = { "", "Paper", "Scissors", "Rock" };
-            return Guess[CompGuess.Next(1, 4)];
+
+            string Comp = GamePlay.ComputerChoice();
+            string Result = GamePlay.Play(Hum, Comp);
+
+            switch (Result)
+            {
+                case "Win":
+                    txtMainMessage.Text = "Well you won that!" + Environment.NewLine + Hum + " beats " + Comp;
+                    GamePic.SetImageResource(Resource.Drawable.win);
+                    break;
+                case "Lose":
+                    txtMainMessage.Text = "Well you Lost that!" + Environment.NewLine + Comp + " beats " + Hum;
+                    GamePic.SetImageResource(Resource.Drawable.lose);
+                    break;
+
+                case "Draw":
+                    txtMainMessage.Text = "It was a draw!" + Environment.NewLine + Hum + " and " + Comp;
+                    GamePic.SetImageResource(Resource.Drawable.ww2);
+                    break;
+            }
         }
 
     }
